@@ -7,15 +7,21 @@
     <title>Todo Again</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css?family=McLaren|Open+Sans&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="todo">
-      <h1 class="title">TODO LIST</h1>
-      <input v-model="addTodo" placeholder="Add todo here.."><button v-on:click="addItem()">Add</button></input>
-      <ul>
+      <div class="header">
+        <h1>Todo List</h1>
+      </div>
+      <div class="form">
+        <input v-model="addTodo" v-on:keyup.enter="addItem" placeholder="Add todo here.."></input>
+        <button v-on:click="addItem()">Add</button>
+      </div>
+      <ul class="list">
         <li v-for="item in items">
           {{ item.todos }}
-          <button v-on:click="deleteTodo(item)">Delete</button>
+          <button v-on:click="deleteTodo(item)">X</button>
         </li>
       </ul>
     </div>
